@@ -1,0 +1,216 @@
+/* Craigslist-style CSS */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #000;
+  background-color: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 15px;
+}
+
+/* Links */
+a {
+  color: #00c;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #800080;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.site-title a {
+  color: #800080;
+  text-decoration: none;
+}
+
+.site-title a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation */
+.site-nav {
+  font-size: 0.8rem;
+}
+
+.site-nav a {
+  margin-right: 10px;
+}
+
+/* Main content */
+main {
+  min-height: 400px;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin-top: 30px;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Blog list */
+.blog-list {
+  list-style: none;
+}
+
+.blog-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-list li:last-child {
+  border-bottom: none;
+}
+
+.post-date {
+  color: #666;
+  font-size: 0.75rem;
+  margin-left: 10px;
+}
+
+/* Section headers */
+.section-header {
+  background-color: #f0f0f0;
+  padding: 5px 8px;
+  margin: 20px 0 10px 0;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border-left: 3px solid #800080;
+}
+
+/* Blog post content */
+.post-header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.post-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.post-content {
+  line-height: 1.6;
+}
+
+.post-content h2 {
+  font-size: 1.1rem;
+  margin: 20px 0 10px 0;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #eee;
+}
+
+.post-content h3 {
+  font-size: 1rem;
+  margin: 15px 0 8px 0;
+}
+
+.post-content p {
+  margin-bottom: 12px;
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 10px 0 10px 25px;
+}
+
+.post-content li {
+  margin-bottom: 5px;
+}
+
+.post-content blockquote {
+  border-left: 3px solid #ccc;
+  padding-left: 15px;
+  margin: 15px 0;
+  color: #555;
+}
+
+.post-content code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #f5f5f5;
+  padding: 2px 5px;
+  font-size: 0.85em;
+}
+
+.post-content pre {
+  background-color: #f5f5f5;
+  padding: 10px;
+  overflow-x: auto;
+  margin: 15px 0;
+  border: 1px solid #ddd;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Back link */
+.back-link {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #ccc;
+}
+
+/* About page */
+.about-section {
+  margin-bottom: 25px;
+}
+
+.about-section h2 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  body {
+    padding: 8px 10px;
+  }
+
+  .site-title {
+    font-size: 1.25rem;
+  }
+}
