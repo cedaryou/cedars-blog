@@ -4,6 +4,7 @@ import { Resend } from 'resend';
 import { marked } from 'marked';
 import * as fs from 'fs';
 import * as path from 'path';
+import { createHmac } from 'crypto';
 
 // Environment variables (loaded from .env)
 const UPSTASH_REDIS_REST_URL = process.env.UPSTASH_REDIS_REST_URL;
@@ -11,6 +12,7 @@ const UPSTASH_REDIS_REST_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const FROM_EMAIL = process.env.FROM_EMAIL || 'newsletter@yourdomain.com';
 const SITE_URL = process.env.SITE_URL || 'https://your-site.vercel.app';
+const UNSUBSCRIBE_SECRET = process.env.UNSUBSCRIBE_SECRET;
 
 if (!UPSTASH_REDIS_REST_URL || !UPSTASH_REDIS_REST_TOKEN) {
   console.error('Missing Upstash Redis credentials');
@@ -20,6 +22,17 @@ if (!UPSTASH_REDIS_REST_URL || !UPSTASH_REDIS_REST_TOKEN) {
 if (!RESEND_API_KEY) {
   console.error('Missing RESEND_API_KEY');
   process.exit(1);
+}
+
+if (!UNSUBSCRIBE_SECRET) {
+  console.error('Missing UNSUBSCRIBE_SECRET - generate one with: openssl rand -hex 32');
+  process.exit(1);
+}
+
+function generateUnsubscribeToken(email: string): string {
+  return createHmac('sha256', UNSUBSCRIBE_SECRET!)
+    .update(email.toLowerCase().trim())
+    .digest('hex');
 }
 
 const redis = new Redis({
@@ -135,7 +148,7 @@ async function sendNewsletter() {
   <p><a href="${postUrl}" class="view-online">View on website &rarr;</a></p>
   <div class="footer">
     <p>You received this because you subscribed to cedar's blog.</p>
-    <p><a href="${SITE_URL}/api/unsubscribe?email=EMAIL_PLACEHOLDER">Unsubscribe</a></p>
+    <p><a href="${SITE_URL}/api/unsubscribe?email=EMAIL_PLACEHOLDER&token=TOKEN_PLACEHOLDER">Unsubscribe</a></p>
   </div>
 </body>
 </html>
@@ -146,7 +159,11 @@ async function sendNewsletter() {
 
   for (const email of subscribers) {
     try {
-      const personalizedHtml = htmlContent.replace('EMAIL_PLACEHOLDER', encodeURIComponent(email as string));
+      const emailStr = email as string;
+      const token = generateUnsubscribeToken(emailStr);
+      const personalizedHtml = htmlContent
+        .replace('EMAIL_PLACEHOLDER', encodeURIComponent(emailStr))
+        .replace('TOKEN_PLACEHOLDER', token);
       await resend.emails.send({
         from: FROM_EMAIL,
         to: email as string,
