@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { title, description = "A simple personal blog" } = Astro.props;
+const siteUrl = Astro.url.origin;
 ---
 
 <!doctype html>
@@ -20,9 +21,11 @@ const { title, description = "A simple personal blog" } = Astro.props;
     <meta property="og:type" content="article" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/cy.png`} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/cy.png`} />
   </head>
   <body>
     <header class="site-header">
