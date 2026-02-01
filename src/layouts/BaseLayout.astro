@@ -13,8 +13,7 @@ const { title, description = "A simple personal blog" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.png" />
     <title>{title}</title>
   </head>
   <body>
@@ -23,6 +22,7 @@ const { title, description = "A simple personal blog" } = Astro.props;
       <nav class="site-nav">
         <a href="/">home</a>
         <a href="/about">about</a>
+        <a href="/subscribe">subscribe</a>
       </nav>
     </header>
 

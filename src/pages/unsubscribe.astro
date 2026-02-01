@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const success = Astro.url.searchParams.get('success');
+const error = Astro.url.searchParams.get('error');
+---
+
+<BaseLayout title="Unsubscribe - cedar's blog" description="Unsubscribe from cedar's blog newsletter">
+  <div class="section-header">unsubscribe</div>
+
+  <div class="unsubscribe-section">
+    {success && (
+      <p class="message success">You've been unsubscribed. Sorry to see you go!</p>
+    )}
+    {error === 'missing' && (
+      <p class="message error">Invalid unsubscribe link.</p>
+    )}
+    {error === 'failed' && (
+      <p class="message error">Something went wrong. Please try again.</p>
+    )}
+    {!success && !error && (
+      <p>Use the unsubscribe link in your newsletter email to unsubscribe.</p>
+    )}
+  </div>
+</BaseLayout>

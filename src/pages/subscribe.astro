@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Subscribe - cedar's blog" description="Subscribe to cedar's blog newsletter">
+  <div class="section-header">subscribe</div>
+
+  <div class="subscribe-section">
+    <p>Get new posts delivered to your inbox. No spam, unsubscribe anytime.</p>
+
+    <form id="subscribe-form" class="subscribe-form">
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="your@email.com"
+        required
+      />
+      <button type="submit">subscribe</button>
+    </form>
+
+    <div id="message" class="message"></div>
+  </div>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('subscribe-form') as HTMLFormElement;
+  const message = document.getElementById('message') as HTMLDivElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const button = form.querySelector('button') as HTMLButtonElement;
+
+    button.disabled = true;
+    button.textContent = 'subscribing...';
+    message.className = 'message';
+    message.textContent = '';
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        message.className = 'message success';
+        message.textContent = data.message;
+        form.reset();
+      } else {
+        message.className = 'message error';
+        message.textContent = data.error || 'Something went wrong';
+      }
+    } catch (error) {
+      message.className = 'message error';
+      message.textContent = 'Failed to subscribe. Please try again.';
+    } finally {
+      button.disabled = false;
+      button.textContent = 'subscribe';
+    }
+  });
+</script>
