@@ -1,7 +1,7 @@
 ---
 title: Welcome to my Blog
 subtitle: I now have a blog that looks more or less like craigslist.
-description: I made a website that looks like craigslist using claude code.
+description: my first post
 pubDate: 2026-02-01
 author: cedar
 ---
