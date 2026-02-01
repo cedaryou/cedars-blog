@@ -1,10 +1,9 @@
 ---
 title: Welcome to my Blog
 subtitle: I now have a blog that looks more or less like craigslist.
-description:
+description: I made a website that looks like craigslist using claude code.
 pubDate: 2026-02-01
 author: cedar
-tags:
 ---
 A couple of days ago I posted:
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I believe that Craigslist is the pinnacle of web design and that every website should essentially look more or less like Craigslist</p>&mdash; Cedar You (@our_decay) <a href="https://twitter.com/our_decay/status/2016712908244185464?ref_src=twsrc%5Etfw">January 29, 2026</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
