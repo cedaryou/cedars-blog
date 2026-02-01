@@ -15,6 +15,14 @@ const { title, description = "A simple personal blog" } = Astro.props;
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.png" />
     <title>{title}</title>
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body>
     <header class="site-header">
