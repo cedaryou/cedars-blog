@@ -19,6 +19,7 @@ const { title, description = "A simple personal blog" } = Astro.props;
   <body>
     <header class="site-header">
       <h1 class="site-title"><a href="/">cedar's blog</a></h1>
+      <p class="site-tagline">Sithens in a net I seek to hold the wind.</p>
       <nav class="site-nav">
         <a href="/">home</a>
         <a href="/about">about</a>
@@ -32,6 +33,7 @@ const { title, description = "A simple personal blog" } = Astro.props;
 
     <footer class="site-footer">
       <p>&copy; {new Date().getFullYear()} cedar's blog</p>
+      <span id="subscriber-counter"></span>
     </footer>
   </body>
 </html>
@@ -39,3 +41,20 @@ const { title, description = "A simple personal blog" } = Astro.props;
 <style is:global>
   @import "../styles/global.css";
 </style>
+
+<script>
+  async function loadSubscriberCount() {
+    try {
+      const response = await fetch('/api/subscriber-count');
+      const data = await response.json();
+      const counter = document.getElementById('subscriber-counter');
+      if (counter) {
+        counter.textContent = `${data.count} subscriber${data.count === 1 ? '' : 's'}`;
+      }
+    } catch (e) {
+      // silently fail
+    }
+  }
+  loadSubscriberCount();
+</script>
+

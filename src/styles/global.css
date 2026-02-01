@@ -58,6 +58,13 @@ a:hover {
   text-decoration: underline;
 }
 
+.site-tagline {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
 .site-logo {
   height: 1.5rem;
   width: auto;
@@ -86,6 +93,9 @@ main {
   margin-top: 30px;
   font-size: 0.75rem;
   color: #666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Blog list */
@@ -129,6 +139,13 @@ main {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 5px;
+}
+
+.post-subtitle {
+  font-size: 1rem;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 8px;
 }
 
 .post-meta {
@@ -215,6 +232,18 @@ main {
 .subscribe-section {
   margin-top: 15px;
 }
+
+.subscribe-footer {
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+  margin-top: 50px;
+}
+
+.subscribe-footer p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
 
 .subscribe-section p {
   margin-bottom: 15px;
