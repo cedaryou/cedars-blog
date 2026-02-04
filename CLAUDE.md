@@ -68,6 +68,7 @@ The filename becomes the URL slug (e.g., `my-post.md` → `/blog/my-post`).
 | Styling | `src/styles/global.css` |
 | Subscribe page | `src/pages/subscribe.astro` |
 | Subscribe API | `src/pages/api/subscribe.ts` |
+| Unsubscribe API | `src/pages/api/unsubscribe.ts` |
 
 ## Newsletter
 
@@ -82,6 +83,13 @@ Requires environment variables (see `.env.example`):
 - `RESEND_API_KEY` from [Resend](https://resend.com/api-keys)
 - `FROM_EMAIL` - your verified sender email
 - `SITE_URL` - your deployed site URL
+- `UNSUBSCRIBE_SECRET` - HMAC secret for signed unsubscribe links (generate with `openssl rand -hex 32`)
+
+## Security
+
+- Unsubscribe links use HMAC-SHA256 signed tokens to prevent unauthorized unsubscriptions
+- The token is generated from the email + `UNSUBSCRIBE_SECRET` and verified server-side
+- Both `.env` and Vercel must have matching `UNSUBSCRIBE_SECRET` values
 
 ## Notes
 
