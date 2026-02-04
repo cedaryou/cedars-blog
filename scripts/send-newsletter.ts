@@ -157,6 +157,8 @@ async function sendNewsletter() {
   let sent = 0;
   let failed = 0;
 
+  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
   for (const email of subscribers) {
     try {
       const emailStr = email as string;
@@ -172,6 +174,8 @@ async function sendNewsletter() {
       });
       console.log(`Sent to: ${email}`);
       sent++;
+      // Rate limit: 2 emails per second (500ms between sends)
+      await delay(500);
     } catch (error) {
       console.error(`Failed to send to ${email}:`, error);
       failed++;
