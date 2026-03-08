@@ -13,7 +13,7 @@ My name is Anthony Chan. I was born at Mount Sinai Hospital on the Upper West Si
 
 I have no mother. I was brought into this world via in vitro fertilization using my father's sperm, and eggs from an American woman. Her name is unknown to me, but I'm told that she had, at a minimum, a 145 WAIS-IV IQ, a 1590 on the SAT, and a 178 on the LSAT. She attended Harvard for undergrad and Yale for Law School. My father paid $85,000 for her eggs, and another $40,000 for the use of a healthy young low-income woman's womb for surrogacy.
 
-Every moment since I was born, and even before that, has been dedicated to one purpose and one purpose only: getting into an elite Manhattan private preschool. Failure was not an option.
+Every moment since I was born, and even before that, has been dedicated to one purpose and one purpose only: getting into an elite Manhattan private preschool.
 
 Julio, the pre-school admissions consultant my father retained in my surrogate's first trimester for an annual fee of $20,000, was hired to give me extensive pre-preschool preparation and get me exclusive networking play-dates with other top admissions candidates. We began with flashcards of colours, which he would show while pronouncing them slowly standing just above my crib. My first word was "green."
 
