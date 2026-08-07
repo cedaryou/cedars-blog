@@ -3,8 +3,10 @@ import { getCollection } from 'astro:content';
 
 export const prerender = false;
 
-export const GET: APIRoute = async ({ url }) => {
-  const origin = url.origin;
+export const GET: APIRoute = async ({ site, url }) => {
+  // Vercel's function runtime reports url.origin as "localhost"; use the
+  // configured site URL so feed links point at the real domain.
+  const origin = (site ?? new URL(url.origin)).origin;
 
   const posts = (await getCollection('blog')).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()

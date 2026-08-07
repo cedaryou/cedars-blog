@@ -5,7 +5,9 @@ interface Props {
 }
 
 const { title, description = "A simple personal blog" } = Astro.props;
-const siteUrl = Astro.url.origin;
+// Vercel's function runtime reports the origin as "localhost"; use the
+// configured site URL so og:image points at the real domain.
+const siteUrl = (Astro.site ?? new URL(Astro.url.origin)).origin;
 ---
 
 <!doctype html>
