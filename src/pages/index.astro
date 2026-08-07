@@ -24,6 +24,7 @@ function formatDate(date: Date): string {
         {posts.map((post) => (
           <li>
             <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            <span class="post-desc">&mdash; {post.data.description}</span>
             <span class="post-date">{formatDate(post.data.pubDate)}</span>
           </li>
         ))}

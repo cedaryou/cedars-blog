@@ -118,6 +118,12 @@ main {
   margin-left: 10px;
 }
 
+.post-desc {
+  color: #666;
+  font-size: 0.75rem;
+  margin-left: 10px;
+}
+
 /* Section headers */
 .section-header {
   background-color: #f0f0f0;
