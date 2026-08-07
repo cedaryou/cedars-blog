@@ -8,7 +8,6 @@ A simple Craigslist-style personal blog built with Astro.
 npm run dev         # Start local server at http://localhost:4321
 npm run build       # Build for production
 npm run preview     # Preview production build
-npm run newsletter  # Send newsletter to subscribers
 ```
 
 ## Deployment
@@ -22,7 +21,7 @@ git push
 Pushing to main auto-deploys to Vercel.
 
 - **GitHub repo:** https://github.com/cedaryou/cedars-blog
-- **Live site:** Check Vercel dashboard for URL
+- **Live site:** https://cedaryou.com
 
 ## Project Structure
 
@@ -33,12 +32,9 @@ src/
 ├── pages/
 │   ├── index.astro    # Homepage
 │   ├── about.astro    # About page
-│   ├── subscribe.astro # Newsletter signup
-│   ├── api/subscribe.ts # Subscribe API endpoint
+│   ├── 404.astro      # 404 page
 │   └── blog/[...slug].astro  # Blog post template
 └── styles/global.css  # All CSS styling
-scripts/
-└── send-newsletter.ts # Manual newsletter sender
 ```
 
 ## Adding a New Blog Post
@@ -57,6 +53,7 @@ Your content here...
 ```
 
 The filename becomes the URL slug (e.g., `my-post.md` → `/blog/my-post`).
+Astro slugifies filenames: `My Post.md` → `/blog/my-post`.
 
 ## Key Files to Edit
 
@@ -66,30 +63,7 @@ The filename becomes the URL slug (e.g., `my-post.md` → `/blog/my-post`).
 | Site title/nav | `src/layouts/BaseLayout.astro` |
 | Homepage | `src/pages/index.astro` |
 | Styling | `src/styles/global.css` |
-| Subscribe page | `src/pages/subscribe.astro` |
-| Subscribe API | `src/pages/api/subscribe.ts` |
-| Unsubscribe API | `src/pages/api/unsubscribe.ts` |
-
-## Newsletter
-
-Send a newsletter to all subscribers after publishing a new post:
-
-```bash
-npm run newsletter
-```
-
-Requires environment variables (see `.env.example`):
-- `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` from [Upstash](https://console.upstash.com/)
-- `RESEND_API_KEY` from [Resend](https://resend.com/api-keys)
-- `FROM_EMAIL` - your verified sender email
-- `SITE_URL` - your deployed site URL
-- `UNSUBSCRIBE_SECRET` - HMAC secret for signed unsubscribe links (generate with `openssl rand -hex 32`)
-
-## Security
-
-- Unsubscribe links use HMAC-SHA256 signed tokens to prevent unauthorized unsubscriptions
-- The token is generated from the email + `UNSUBSCRIBE_SECRET` and verified server-side
-- Both `.env` and Vercel must have matching `UNSUBSCRIBE_SECRET` values
+| 404 page | `src/pages/404.astro` |
 
 ## Notes
 

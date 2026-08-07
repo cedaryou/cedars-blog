@@ -34,7 +34,6 @@ const siteUrl = Astro.url.origin;
       <nav class="site-nav">
         <a href="/">home</a>
         <a href="/about">about</a>
-        <a href="/subscribe">subscribe</a>
       </nav>
     </header>
 
@@ -44,7 +43,6 @@ const siteUrl = Astro.url.origin;
 
     <footer class="site-footer">
       <p>&copy; {new Date().getFullYear()} cedar's blog</p>
-      <span id="subscriber-counter"></span>
     </footer>
   </body>
 </html>
@@ -52,20 +50,4 @@ const siteUrl = Astro.url.origin;
 <style is:global>
   @import "../styles/global.css";
 </style>
-
-<script>
-  async function loadSubscriberCount() {
-    try {
-      const response = await fetch('/api/subscriber-count');
-      const data = await response.json();
-      const counter = document.getElementById('subscriber-counter');
-      if (counter) {
-        counter.textContent = `${data.count} subscriber${data.count === 1 ? '' : 's'}`;
-      }
-    } catch (e) {
-      // silently fail
-    }
-  }
-  loadSubscriberCount();
-</script>
 

@@ -6,16 +6,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "newsletter": "npx tsx scripts/send-newsletter.ts",
-    "cleanup-subscribers": "npx tsx scripts/cleanup-subscribers.ts"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/vercel": "^9.0.4",
-    "@upstash/redis": "^1.36.1",
-    "astro": "^5.16.16",
-    "dotenv": "^17.2.3",
-    "marked": "^17.0.1",
-    "resend": "^6.9.1"
+    "astro": "^5.16.16"
   }
 }

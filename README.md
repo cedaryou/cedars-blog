@@ -1,43 +1,40 @@
-# Astro Starter Kit: Minimal
+# cedar's blog
 
-```sh
-npm create astro@latest -- --template minimal
+A simple Craigslist-style personal blog built with [Astro](https://astro.build), deployed to [Vercel](https://vercel.com).
+
+- **Live site:** https://cedaryou.com
+- **Stack:** Astro 5 (SSR on Vercel), Markdown posts written in Obsidian, plain CSS
+
+## Commands
+
+```bash
+npm install    # install dependencies
+npm run dev    # local dev server at http://localhost:4321
+npm run build  # production build to dist/
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Deploying
 
-## 🚀 Project Structure
+Push to `main` — Vercel auto-deploys.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Writing a post
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+Add a `.md` file to `src/content/blog/` with frontmatter:
+
+```markdown
+---
+title: "Post Title"
+description: "Short description"
+pubDate: 2026-01-01
+author: "Cedar"
+---
+
+Body here...
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The filename becomes the slug (`My Post.md` → `/blog/my-post`).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Notes
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Blog posts live in `src/content/blog/` — that folder is also an Obsidian vault.
+- Full project docs are in `CLAUDE.md`.
